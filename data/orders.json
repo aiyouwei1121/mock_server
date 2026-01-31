@@ -1,0 +1,11 @@
+{
+  "total": 5,
+  "statusPool": ["WAIT", "PASS", "REJECT"],
+  "amountMin": 10,
+  "amountMax": 9999,
+  "template": {
+    "currency": "CNY",
+    "channel": "mock",
+    "note": "generated"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "avatar": "https://example.com/avatar/10001.png",
+  "role": "tester",
+  "extra": {
+    "team": "qa",
+    "location": "shenzhen",
+    "level": 3
+  }
+}
