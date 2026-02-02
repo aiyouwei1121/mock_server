@@ -3,7 +3,7 @@ import type { Request, Response, NextFunction } from "express";
 import { fail } from "../utils/resp";
 
 // 固定 token（与 login 返回一致）
-const TOKEN = "mock-token-123";
+const TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.xxx.yyy";
 
 // Authorization: Bearer <token>
 export function auth(req: Request | any, res: Response, next: NextFunction): void {

@@ -2,6 +2,7 @@
 import express from "express";
 import cors from "cors";
 import authRoutes from "./routes/auth";
+import adminAuthRoutes from "./routes/adminAuth";
 import userRoutes from "./routes/user";
 import ordersRoutes from "./routes/orders";
 import dashboardRoutes from "./routes/dashboard";
@@ -22,9 +23,10 @@ app.use(dynamicDelay);
 
 // 5) 路由挂载
 app.use("/api/auth", authRoutes);
+app.use("/api/v1/admin/auth", adminAuthRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/orders", ordersRoutes);
-app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/v1/dashboard", dashboardRoutes);
 
 // 端口：环境变量优先，否则 3000
 const port = Number(process.env.PORT ?? 3000);

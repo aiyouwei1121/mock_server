@@ -17,7 +17,7 @@ const router: RouterType = Router();
 // auth required
 router.use(auth);
 
-// GET /api/dashboard/summary
+// GET /api/v1/dashboard/summary
 router.get("/summary", async (_req, res) => {
   try {
     const data = (await getDashboardData()) as DashboardData;
@@ -38,7 +38,7 @@ router.get("/summary", async (_req, res) => {
   }
 });
 
-// POST /api/dashboard/summary
+// POST /api/v1/dashboard/summary
 // body: { today_new_reward: number }
 router.post("/summary", async (req, res) => {
   const raw = (req.body ?? {}) as { today_new_reward?: unknown };

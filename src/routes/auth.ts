@@ -11,7 +11,7 @@ router.post("/login", (req, res) => {
   const username = typeof body.username === "string" ? body.username.trim() : "";
 
   return ok(res, {
-    token: "mock-token-123",
+    token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.xxx.yyy",
     name: username.length > 0 ? username : "Mock User",
   });
 });
