@@ -4,6 +4,7 @@ import cors from "cors";
 import authRoutes from "./routes/auth";
 import userRoutes from "./routes/user";
 import ordersRoutes from "./routes/orders";
+import dashboardRoutes from "./routes/dashboard";
 import { inject } from "./middleware/inject";
 import { dynamicDelay } from "./middleware/dynamicDelay";
 
@@ -23,6 +24,7 @@ app.use(dynamicDelay);
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/orders", ordersRoutes);
+app.use("/api/dashboard", dashboardRoutes);
 
 // 端口：环境变量优先，否则 3000
 const port = Number(process.env.PORT ?? 3000);

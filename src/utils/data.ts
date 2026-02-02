@@ -45,3 +45,23 @@ export async function getUserData(): Promise<Record<string, unknown>> {
 export async function getOrdersData(): Promise<Record<string, unknown>> {
   return loadJson<Record<string, unknown>>("orders.json");
 }
+
+// dashboard.json reader
+export async function getDashboardData(): Promise<Record<string, unknown>> {
+  return loadJson<Record<string, unknown>>("dashboard.json");
+}
+
+export async function saveDashboardData(
+  patch: Partial<Record<string, unknown>>
+): Promise<Record<string, unknown>> {
+  const filePath = path.join(process.cwd(), "data", "dashboard.json");
+  const current = await loadJson<Record<string, unknown>>("dashboard.json");
+  const next = {
+    ...current,
+    ...patch,
+  };
+  const raw = `${JSON.stringify(next, null, 2)}\n`;
+  await fs.writeFile(filePath, raw, "utf8");
+  cache.set(filePath, { data: next, ts: Date.now() });
+  return next;
+}
